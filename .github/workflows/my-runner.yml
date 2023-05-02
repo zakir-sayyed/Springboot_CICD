@@ -13,9 +13,9 @@ jobs:
       - name: print-ENV
         run: "[System.Environment]::GetEnvironmentVariables()"
       - name: Use Command Prompt
+        shell: cmd
         run: |
-	  echo %PATH% 
-	  echo %JAVA_HOME%
+	  echo %PATH%
+          echo %JAVA_HOME%
 	  echo %MAVEN_HOME%
 	  mvn --version
-        shell: cmd
