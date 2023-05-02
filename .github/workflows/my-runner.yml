@@ -15,5 +15,7 @@ jobs:
       - name: Use Command Prompt
         shell: cmd
         run: 
-          echo "PATH%; echo %JAVA_HOME%;echo "%MAVEN_HOME%;mvn --version
- 
+          echo %PATH%;
+          echo %JAVA_HOME%;
+          echo %MAVEN_HOME%;
+          mvn --version 
