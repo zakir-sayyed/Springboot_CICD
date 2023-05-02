@@ -18,4 +18,8 @@ jobs:
           echo %PATH%;
           echo %JAVA_HOME%;
           echo %MAVEN_HOME%;
-          mvn --version 
+      - name: Check if Maven runs correctly
+        shell: cmd
+        run: 
+          mvn --version
+          
