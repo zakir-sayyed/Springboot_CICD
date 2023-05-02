@@ -5,17 +5,12 @@ on:
       - main
 
 jobs:
-  local-job:
+  bash-example:
     runs-on: self-hosted
     steps:
-      - name: example-step
-        run: echo "Hello World!"
-      - name: print-ENV
-        run: "[System.Environment]::GetEnvironmentVariables()"
-      - name: Use Command Prompt
+      - name: Group of log lines
         shell: cmd
         run: |
-	  echo %PATH%
-          echo %JAVA_HOME%
-	  echo %MAVEN_HOME%
-	  mvn --version
+            echo "::group::My title"
+            echo "Inside group"
+            echo "::endgroup::" 
