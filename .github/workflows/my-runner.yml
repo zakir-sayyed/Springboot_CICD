@@ -21,3 +21,14 @@ jobs:
       - name: check if maven command works
         shell: cmd
         run: mvn --version
+      - name: Check out GitHub repository code
+        uses: actions/checkout@v3
+      - name: maven package
+        shell: cmd
+        run: mvn package
+      - name: Deploy onto Tomcat
+        shell: cmd
+        env: 
+          TOMCAT_USER: ${{ secrets.TOMCAT_USER }}
+          TOMCAT_PASS: ${{ secrets.TOMCAT_PASS }}
+        run: curl --upload-file target\mvnwebapp.war "http://%TOMCAT_USER%:%TOMCAT_PASS%@localhost:8081/manager/text/deploy?path=/byactions&update=true"
