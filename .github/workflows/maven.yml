@@ -34,5 +34,8 @@ jobs:
       run: curl --help
       shell: cmd
     - name: Deploying war file to Tomcat Server
+      env: 
+        TOMCAT_USER: ${{ secrets.TOMCAT_USER }}
+        TOMCAT_PASS: ${{ secrets.TOMCAT_PASS }}
       run: curl --upload-file target\mvnwebapp.war "http://%TOMCAT_USER%:%TOMCAT_PASS%@8fb9-2406-7400-56-93a9-c5a1-5754-7ad6-af4d.ngrok-free.app/manager/text/deploy?path=/byactions&update=true"
       shell: cmd
