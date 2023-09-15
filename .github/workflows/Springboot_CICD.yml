@@ -25,6 +25,9 @@ jobs:
       - name: maven package
         shell: cmd
         run: mvn package
+      - name: check if maven command works
+        shell: cmd
+        run: echo "war is generated"
       - name: Deploy onto Tomcat
         shell: cmd
         env: 
